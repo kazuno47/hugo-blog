@@ -3,12 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://hugo.kazunobu.info/posts/my-second-post/</loc>
+    <lastmod>2018-11-27T13:18:28+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hugo.kazunobu.info/posts/my-first-post/</loc>
+    <lastmod>2018-11-27T12:55:33+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hugo.kazunobu.info/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://hugo.kazunobu.info/</loc>
+    <lastmod>2018-11-27T13:18:28+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hugo.kazunobu.info/posts/</loc>
+    <lastmod>2018-11-27T13:18:28+09:00</lastmod>
     <priority>0</priority>
   </url>
   
