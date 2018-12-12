@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://hugo.kazunobu.info/posts/circleci/</loc>
+    <lastmod>2018-12-12T14:49:20+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hugo.kazunobu.info/os/centos/iso%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8/</loc>
     <lastmod>2018-11-29T15:34:14+09:00</lastmod>
   </url>
@@ -19,7 +24,7 @@
   
   <url>
     <loc>http://hugo.kazunobu.info/</loc>
-    <lastmod>2018-11-29T15:34:14+09:00</lastmod>
+    <lastmod>2018-12-12T14:49:20+09:00</lastmod>
   </url>
   
   <url>
@@ -35,7 +40,7 @@
   
   <url>
     <loc>http://hugo.kazunobu.info/posts/</loc>
-    <lastmod>2018-11-27T13:18:28+09:00</lastmod>
+    <lastmod>2018-12-12T14:49:20+09:00</lastmod>
     <priority>0</priority>
   </url>
   
