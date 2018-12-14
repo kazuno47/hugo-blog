@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Email :: Kazunobu.info tech blog</title>
+    <title>99.Trouble_shooting :: Kazunobu.info tech blog</title>
 
     
     <link href="/css/nucleus.css?1544752237" rel="stylesheet">
@@ -32,7 +32,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/english/email/">
+  <body class="" data-url="/os/centos/trouble_shooting/">
     <nav id="sidebar" class="">
 
 
@@ -72,7 +72,7 @@
   
     
     <li data-nav-id="/os/" title="OSs" class="dd-item 
-        
+        parent
         
         
         ">
@@ -96,7 +96,7 @@
  
   
     
-      <li data-nav-id="/os/centos/trouble_shooting/" title="99.Trouble_shooting" class="dd-item ">
+      <li data-nav-id="/os/centos/trouble_shooting/" title="99.Trouble_shooting" class="dd-item active">
         <a href="/os/centos/trouble_shooting/">
         99.Trouble_shooting
         
@@ -161,7 +161,7 @@
   
     
     <li data-nav-id="/english/" title="Englishes" class="dd-item 
-        parent
+        
         
         
         ">
@@ -185,7 +185,7 @@
  
   
     
-      <li data-nav-id="/english/email/" title="Email" class="dd-item active">
+      <li data-nav-id="/english/email/" title="Email" class="dd-item ">
         <a href="/english/email/">
         Email
         
@@ -343,7 +343,7 @@
             
           
           
-            <a href='/'></a> > <a href='/english/'>Englishes</a> > Email
+            <a href='/'></a> > <a href='/os/'>OSs</a> > 99.Trouble_shooting
           
          
           
@@ -356,7 +356,21 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#コネクションが日本語">コネクションが日本語</a>
+<ul>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+<li><a href="#不明な接続-ensxx-です">不明な接続 &lsquo;ensxx&rsquo; です</a>
+<ul>
+<li><a href="#参考-1">参考</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -368,34 +382,67 @@
         
         <div id="body-inner">
           
-            <h1>Email</h1>
+            <h1>99.Trouble_shooting</h1>
           
 
         
 
 
-<p>とりあえず使いそうな英語例文を羅列していく。後々、グルーピングなどできればよい。</p>
 
-<table>
-    <tr>
-        <th>#</th>
-        <th>en</th>
-        <th>ja</th>
-        <th>note</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>"Looping in {0}, {1}, so you can get an estimate from {3} on when this can be completed.".format(person_name, him/her/them, )</td>
-        <td>メールに役割の○○さんを追加しました。○○さんから、見積もりがきます。</td>
-        <td>estimate の訳が不安。スケジュール的な意味だと思うが･･････</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>"I will be hard to getthing this up before {0} . Would it be OK if we have the {1} {2}".format(time1, work, time2)</td>
-        <td>time1までは忙しくて対応できない。もしよければ work は time2 までにさせてください。</td>
-        <td>end of the year, xx deployed, before January dd などが入る</td>
-    </tr>
-</table>
+
+<p>トラぶった時の対応メモ</p>
+
+<h2 id="コネクションが日本語">コネクションが日本語</h2>
+
+<blockquote>
+<p>コネクションを確認</p>
+
+<p>nmcli c s</p>
+
+<p>UUIDとデバイス名を確認する</p>
+
+<p>コネクションを削除</p>
+
+<p>nmcli c delete [UUID]</p>
+
+<p>コネクション作成</p>
+
+<p>nmcli c add type eth ifname [デバイス名] con-name [デバイス名]</p>
+
+<p>これでデバイス名と同じコネクションネームになる</p>
+
+<p>con-nameの次の[デバイス名]は任意の名前にしてもよい</p>
+</blockquote>
+
+<h3 id="参考">参考</h3>
+
+<p><a href="https://qiita.com/masa-tu/items/ffb28a76ca0ebafa1a16">https://qiita.com/masa-tu/items/ffb28a76ca0ebafa1a16</a></p>
+
+<h2 id="不明な接続-ensxx-です">不明な接続 &lsquo;ensxx&rsquo; です</h2>
+
+<p>UUIDで指定するか、コネクションが日本語に記載のとおり、接続名をデバイス名と同じにしておけばいい。</p>
+
+<blockquote>
+<p>nmcliのmanpageをみると、</p>
+
+<p>nmcliのmanpage による投稿:</p>
+
+<p>modify [&ndash;temporary] [id | uuid | path] ID [+|-]setting.property value&hellip;</p>
+
+<p>となっていて、デバイス名を指定できるとは書かれていません。</p>
+
+<p>ここで指定できるものというのはおそらく、</p>
+
+<p>コード:</p>
+
+<p>nmcli connection show</p>
+
+<p>で出力される「NAME（たぶんこれがid）」や「UUID」などが該当すると思われるのですが、ネット上の情報をみると、以前は「NAME」の情報にもデバイス名が表示されていたようです。</p>
+</blockquote>
+
+<h3 id="参考-1">参考</h3>
+
+<p><a href="https://forums.ubuntulinux.jp/viewtopic.php?id=18652">https://forums.ubuntulinux.jp/viewtopic.php?id=18652</a></p>
 
 
 <footer class=" footline" >
@@ -434,8 +481,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -449,6 +494,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -477,6 +542,22 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -500,43 +581,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -606,10 +650,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/english/" title="Englishes"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/os/" title="OSs"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/posts/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/os/centos/install/" title="02.Install" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

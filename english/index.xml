@@ -17,7 +17,8 @@
       <pubDate>Thu, 13 Dec 2018 11:10:48 +0900</pubDate>
       
       <guid>http://hugo.kazunobu.info/english/email/</guid>
-      <description>  # en ja note   1 &#34;Looping in {0}, {1}, so you can get an estimate from {3} on when this can be completed.&#34;.format(person_name, him/her/them, ) メールに役割の○○さんを追加しました。○○さんから、見積もりがきます。 estimate の訳が不安。スケジュール的な意味だと思うが･･････   2      </description>
+      <description>とりあえず使いそうな英語例文を羅列していく。後々、グルーピングなどできればよい。
+  # en ja note   1 &#34;Looping in {0}, {1}, so you can get an estimate from {3} on when this can be completed.&#34;.format(person_name, him/her/them, ) メールに役割の○○さんを追加しました。○○さんから、見積もりがきます。 estimate の訳が不安。スケジュール的な意味だと思うが･･････   2 &#34;I will be hard to getthing this up before {0} . Would it be OK if we have the {1} {2}&#34;.format(time1, work, time2) time1までは忙しくて対応できない。もしよければ work は time2 までにさせてください。 end of the year, xx deployed, before January dd などが入る   </description>
     </item>
     
   </channel>

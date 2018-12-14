@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Email :: Kazunobu.info tech blog</title>
+    <title>02.Install :: Kazunobu.info tech blog</title>
 
     
     <link href="/css/nucleus.css?1544752237" rel="stylesheet">
@@ -32,7 +32,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/english/email/">
+  <body class="" data-url="/os/centos/install/">
     <nav id="sidebar" class="">
 
 
@@ -72,7 +72,7 @@
   
     
     <li data-nav-id="/os/" title="OSs" class="dd-item 
-        
+        parent
         
         
         ">
@@ -115,7 +115,7 @@
  
   
     
-      <li data-nav-id="/os/centos/install/" title="02.Install" class="dd-item ">
+      <li data-nav-id="/os/centos/install/" title="02.Install" class="dd-item active">
         <a href="/os/centos/install/">
         02.Install
         
@@ -161,7 +161,7 @@
   
     
     <li data-nav-id="/english/" title="Englishes" class="dd-item 
-        parent
+        
         
         
         ">
@@ -185,7 +185,7 @@
  
   
     
-      <li data-nav-id="/english/email/" title="Email" class="dd-item active">
+      <li data-nav-id="/english/email/" title="Email" class="dd-item ">
         <a href="/english/email/">
         Email
         
@@ -343,7 +343,7 @@
             
           
           
-            <a href='/'></a> > <a href='/english/'>Englishes</a> > Email
+            <a href='/'></a> > <a href='/os/'>OSs</a> > 02.Install
           
          
           
@@ -356,7 +356,24 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li><a href="#centos7-の初期設定">CentOS7 の初期設定</a>
+<ul>
+<li><a href="#ユーザアカウントをsudoに追加">ユーザアカウントをsudoに追加</a></li>
+<li><a href="#ネットワーク設定">ネットワーク設定</a></li>
+<li><a href="#yum-の-proxy-設定">yum の proxy 設定</a></li>
+<li><a href="#epel-release-repository-の追加">epel-release repository　の追加</a></li>
+<li><a href="#xrdp-のインストール">xrdp のインストール</a></li>
+<li><a href="#xrdp-の色数変更">xrdp の色数変更</a></li>
+<li><a href="#自動生成されるhomeフォルダを英語化する">自動生成されるhomeフォルダを英語化する</a></li>
+<li><a href="#google-chrome-のインストール">Google Chrome のインストール</a></li>
+<li><a href="#pycharmのインストール">PyCharmのインストール</a></li>
+<li><a href="#cntlm">CNTLM</a></li>
+<li><a href="#jdkのインストール">JDKのインストール</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -368,34 +385,142 @@
         
         <div id="body-inner">
           
-            <h1>Email</h1>
+            <h1>02.Install</h1>
           
 
         
 
 
-<p>とりあえず使いそうな英語例文を羅列していく。後々、グルーピングなどできればよい。</p>
 
-<table>
-    <tr>
-        <th>#</th>
-        <th>en</th>
-        <th>ja</th>
-        <th>note</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>"Looping in {0}, {1}, so you can get an estimate from {3} on when this can be completed.".format(person_name, him/her/them, )</td>
-        <td>メールに役割の○○さんを追加しました。○○さんから、見積もりがきます。</td>
-        <td>estimate の訳が不安。スケジュール的な意味だと思うが･･････</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>"I will be hard to getthing this up before {0} . Would it be OK if we have the {1} {2}".format(time1, work, time2)</td>
-        <td>time1までは忙しくて対応できない。もしよければ work は time2 までにさせてください。</td>
-        <td>end of the year, xx deployed, before January dd などが入る</td>
-    </tr>
-</table>
+
+<h1 id="centos7-の初期設定">CentOS7 の初期設定</h1>
+
+<p>RHEL が本番で使われることが多いので CentOS.</p>
+
+<p>しかし、IBMに買収されたため、他のディストリビューションを選択肢にいれるべきかも。</p>
+
+<h2 id="ユーザアカウントをsudoに追加">ユーザアカウントをsudoに追加</h2>
+
+<pre>
+> visudo 
+# ファイルの最終行に下記を追加 
+username ALL=(ALL) ALL 
+</pre>
+
+<h2 id="ネットワーク設定">ネットワーク設定</h2>
+
+<pre>
+# 下記がなぜかnoのため、yesに変える 
+sudo vim /etc/sysconfig/network-scripts/ifcfg-ens32 
+ONBOOT=no → ONBOOT=yes 
+</pre>
+
+<h2 id="yum-の-proxy-設定">yum の proxy 設定</h2>
+
+<pre>
+> sudo yum vim /etc/yum.conf 
+proxy={username}:{password}@{proxyhost}:{port} 
+</pre>
+
+<h2 id="epel-release-repository-の追加">epel-release repository　の追加</h2>
+
+<p>追加するくらいなら、最初から Fedora でいい気もする。</p>
+
+<pre>
+> sudo yum install epel-release 
+</pre>
+
+<h2 id="xrdp-のインストール">xrdp のインストール</h2>
+
+<blockquote>
+<p>sudo yum install xrdp</p>
+</blockquote>
+
+<h2 id="xrdp-の色数変更">xrdp の色数変更</h2>
+
+<pre>
+> sudo vim /etc/xrdp/xrdp.ini 
+max_bpp=32 → max_bpp=24 
+# 接続時にWindows側のRDPの設定変更もいるかも
+
+# xrdp用にfirewallの穴あけ 
+> firewall-cmd --permanent --zone=public --add-port=3389/tcp 
+> firewall-cmd --reload 
+</pre>
+ 
+
+<h2 id="自動生成されるhomeフォルダを英語化する">自動生成されるhomeフォルダを英語化する</h2>
+
+<pre>
+LANG=C xdg-user-dirs-gtk-update 
+</pre>
+
+<h2 id="google-chrome-のインストール">Google Chrome のインストール</h2>
+
+<pre>
+> sudo vim /etc/yum.repos.d/google.chrome.repo 
+
+[google-chrome] 
+name=google-chrome 
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/$basearch 
+enabled=1 
+gpgcheck=1 
+gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub  
+
+> sudo yum update 
+> sudo yum install google-chrome-stable 
+
+</pre>
+
+<h2 id="pycharmのインストール">PyCharmのインストール</h2>
+
+<p>Pycharmをダウンロードしてくる</p>
+
+<p>解凍してOptに配置</p>
+
+<pre>
+$ tar -xf pycharm-community-4.5.4.tar.gz 
+$ sudo mv pycharm-community-4.5.4 /opt/pycharm 
+</pre>
+ 
+
+<p>初回起動する。初回起動の設定で起動シェルが作られるので、以降はシェル起動が可能となる。</p>
+
+<pre>
+$ cd /opt/pycharm/bin 
+$ ./pycharm.sh 
+# シェル起動 
+$ charm 
+</pre>
+
+<h2 id="cntlm">CNTLM</h2>
+
+<p>日本のエンジニアは Proxy により生産性を大きく落とされている。</p>
+
+<pre>
+# epel リポジトリが必要? 
+
+sudo yum install cntlm  
+sudo vim /etc/cntlm.conf 
+
+&lt;!-- 
+Username        &lt;username&gt;
+Domain          &lt;domainname&gt;
+Password        &lt;password&gt;
+Proxy           &lt;proxyipaddress&gt;:&lt;portno&gt;
+NoProxy         localhost, 127.0.0.*, 10.*, 192.168.* 
+Listen          3128 
+--&gt;
+
+sudo systemctl restart cntlm 
+</pre>
+ 
+
+<h2 id="jdkのインストール">JDKのインストール</h2>
+
+<pre>
+> sudo yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
+</pre>
 
 
 <footer class=" footline" >
@@ -434,8 +559,77 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -461,19 +655,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -481,62 +662,6 @@
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -606,10 +731,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/english/" title="Englishes"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/os/centos/trouble_shooting/" title="99.Trouble_shooting"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/posts/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/os/centos/iso%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8/" title="01.ISOイメージ" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
