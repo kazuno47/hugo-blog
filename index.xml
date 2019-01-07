@@ -6,10 +6,26 @@
     <description>Recent content on Kazunobu.info tech blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 14 Dec 2018 10:59:42 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jan 2019 21:48:51 +0900</lastBuildDate>
     
 	<atom:link href="http://hugo.kazunobu.info/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>CircleCI &#43; Hugo のブログでエラーになった</title>
+      <link>http://hugo.kazunobu.info/posts/20190107/</link>
+      <pubDate>Mon, 07 Jan 2019 21:48:51 +0900</pubDate>
+      
+      <guid>http://hugo.kazunobu.info/posts/20190107/</guid>
+      <description>この Blog は Hugo と CircleCI で構築しているのだが、急にビルドが失敗するようになってしまった。
+エラーは下記
+ # github.com/gohugoio/hugo/parser/metadecoders ../../gohugoio/hugo/parser/metadecoders/decoder.go:45:9: undefined: strings.Builder  ググってみると、string.Builder というのはgolang 1.10 から追加された型らしい。自分の CircleCI の config.yml を確認してみると
+ docker: - image: circleci/golang:1.9  と、1.9 を指定していた。
+https://circleci.com/docs/2.0/circleci-images/から、https://hub.docker.com/r/circleci/golang/tags/ を確認し、とりあえず 1.11 を指定してみた。
+ docker: - image: circleci/golang:1.11  これでビルドが通るようになった。
+git-hub のリンクもはっておく。
+https://github.com/kazuno47/src-hugo-blog/commit/fda39a9eb813f4d25036790ee8c0748872adbe93</description>
+    </item>
     
     <item>
       <title>Basic_mathematics</title>

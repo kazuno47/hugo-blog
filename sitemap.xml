@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://hugo.kazunobu.info/posts/20190107/</loc>
+    <lastmod>2019-01-07T21:48:51+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hugo.kazunobu.info/ai/atmarkit/basic_mathematics/</loc>
     <lastmod>2018-12-14T10:59:42+09:00</lastmod>
   </url>
@@ -44,7 +49,7 @@
   
   <url>
     <loc>http://hugo.kazunobu.info/</loc>
-    <lastmod>2018-12-14T10:59:42+09:00</lastmod>
+    <lastmod>2019-01-07T21:48:51+09:00</lastmod>
   </url>
   
   <url>
@@ -72,7 +77,7 @@
   
   <url>
     <loc>http://hugo.kazunobu.info/posts/</loc>
-    <lastmod>2018-12-12T14:49:20+09:00</lastmod>
+    <lastmod>2019-01-07T21:48:51+09:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Email :: Kazunobu.info tech blog</title>
+    <title>CircleCI &#43; Hugo のブログでエラーになった :: Kazunobu.info tech blog</title>
 
     
     <link href="/css/nucleus.css?1546867111" rel="stylesheet">
@@ -32,7 +32,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/english/email/">
+  <body class="" data-url="/posts/20190107/">
     <nav id="sidebar" class="">
 
 
@@ -72,7 +72,7 @@
   
     
     <li data-nav-id="/posts/" title="Posts" class="dd-item 
-        
+        parent
         
         
         ">
@@ -96,7 +96,7 @@
  
   
     
-      <li data-nav-id="/posts/20190107/" title="CircleCI &#43; Hugo のブログでエラーになった" class="dd-item ">
+      <li data-nav-id="/posts/20190107/" title="CircleCI &#43; Hugo のブログでエラーになった" class="dd-item active">
         <a href="/posts/20190107/">
         CircleCI &#43; Hugo のブログでエラーになった
         
@@ -320,7 +320,7 @@
   
     
     <li data-nav-id="/english/" title="Englishes" class="dd-item 
-        parent
+        
         
         
         ">
@@ -344,7 +344,7 @@
  
   
     
-      <li data-nav-id="/english/email/" title="Email" class="dd-item active">
+      <li data-nav-id="/english/email/" title="Email" class="dd-item ">
         <a href="/english/email/">
         Email
         
@@ -413,7 +413,7 @@
             
           
           
-            <a href='/'></a> > <a href='/english/'>Englishes</a> > Email
+            <a href='/'></a> > <a href='/posts/'>Posts</a> > CircleCI + Hugo のブログでエラーになった
           
          
           
@@ -438,34 +438,42 @@
         
         <div id="body-inner">
           
-            <h1>Email</h1>
+            <h1>CircleCI &#43; Hugo のブログでエラーになった</h1>
           
 
         
 
 
-<p>とりあえず使いそうな英語例文を羅列していく。後々、グルーピングなどできればよい。</p>
+<p>この Blog は Hugo と CircleCI で構築しているのだが、急にビルドが失敗するようになってしまった。</p>
 
-<table>
-    <tr>
-        <th>#</th>
-        <th>en</th>
-        <th>ja</th>
-        <th>note</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>"Looping in {0}, {1}, so you can get an estimate from {3} on when this can be completed.".format(person_name, him/her/them, )</td>
-        <td>メールに役割の○○さんを追加しました。○○さんから、見積もりがきます。</td>
-        <td>estimate の訳が不安。スケジュール的な意味だと思うが･･････</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>"I will be hard to getthing this up before {0} . Would it be OK if we have the {1} {2}".format(time1, work, time2)</td>
-        <td>time1までは忙しくて対応できない。もしよければ work は time2 までにさせてください。</td>
-        <td>end of the year, xx deployed, before January dd などが入る</td>
-    </tr>
-</table>
+<p>エラーは下記</p>
+
+<pre>
+# github.com/gohugoio/hugo/parser/metadecoders
+../../gohugoio/hugo/parser/metadecoders/decoder.go:45:9: undefined: strings.Builder
+</pre>
+
+<p>ググってみると、string.Builder というのはgolang 1.10 から追加された型らしい。自分の CircleCI の config.yml を確認してみると</p>
+
+<pre>
+docker:
+  - image: circleci/golang:1.9
+</pre>
+
+<p>と、1.9 を指定していた。</p>
+
+<p><a href="https://circleci.com/docs/2.0/circleci-images/">https://circleci.com/docs/2.0/circleci-images/</a>から、<a href="https://hub.docker.com/r/circleci/golang/tags/">https://hub.docker.com/r/circleci/golang/tags/</a> を確認し、とりあえず 1.11 を指定してみた。</p>
+
+<pre>
+docker:
+  - image: circleci/golang:1.11
+</pre>
+
+<p>これでビルドが通るようになった。</p>
+
+<p>git-hub のリンクもはっておく。</p>
+
+<p><a href="https://github.com/kazuno47/src-hugo-blog/commit/fda39a9eb813f4d25036790ee8c0748872adbe93">https://github.com/kazuno47/src-hugo-blog/commit/fda39a9eb813f4d25036790ee8c0748872adbe93</a></p>
 
 
 <footer class=" footline" >
@@ -504,8 +512,122 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -563,22 +685,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -599,104 +705,6 @@
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -721,10 +729,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/english/" title="Englishes"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/posts/" title="Posts"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/posts/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/posts/circleci/" title="Circleci" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
