@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://hugo.kazunobu.info/python/webclient/</loc>
+    <lastmod>2019-01-09T16:27:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hugo.kazunobu.info/os/windows10/</loc>
+    <lastmod>2019-01-09T16:21:12+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hugo.kazunobu.info/posts/20190107/</loc>
     <lastmod>2019-01-07T21:48:51+09:00</lastmod>
   </url>
@@ -10,6 +20,11 @@
   <url>
     <loc>http://hugo.kazunobu.info/os/windows10/devenvmemo/</loc>
     <lastmod>2019-01-07T15:49:04+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hugo.kazunobu.info/python/webclient/requests/</loc>
+    <lastmod>2018-12-19T16:16:14+09:00</lastmod>
   </url>
   
   <url>
@@ -43,6 +58,11 @@
   </url>
   
   <url>
+    <loc>http://hugo.kazunobu.info/os/centos/</loc>
+    <lastmod>2018-11-29T15:30:10+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://hugo.kazunobu.info/posts/my-second-post/</loc>
     <lastmod>2018-11-27T13:18:28+09:00</lastmod>
   </url>
@@ -53,8 +73,8 @@
   </url>
   
   <url>
-    <loc>http://hugo.kazunobu.info/os/windows10/</loc>
-    <lastmod>2019-01-07T15:49:04+09:00</lastmod>
+    <loc>http://hugo.kazunobu.info/ai/atmarkit/</loc>
+    <lastmod>2018-12-14T10:59:42+09:00</lastmod>
   </url>
   
   <url>
@@ -64,7 +84,6 @@
   
   <url>
     <loc>http://hugo.kazunobu.info/ai/</loc>
-    <lastmod>2018-12-14T10:59:42+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -81,13 +100,17 @@
   
   <url>
     <loc>http://hugo.kazunobu.info/os/</loc>
-    <lastmod>2018-12-14T10:41:14+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://hugo.kazunobu.info/posts/</loc>
     <lastmod>2019-01-07T21:48:51+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hugo.kazunobu.info/python/</loc>
     <priority>0</priority>
   </url>
   

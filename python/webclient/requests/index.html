@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title> :: Kazunobu.info tech blog</title>
+    <title>Requests :: Kazunobu.info tech blog</title>
 
     
     <link href="/css/nucleus.css?1547019664" rel="stylesheet">
@@ -32,7 +32,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/">
+  <body class="" data-url="/python/webclient/requests/">
     <nav id="sidebar" class="">
 
 
@@ -496,7 +496,7 @@
   
     
     <li data-nav-id="/python/" title="Pythons" class="dd-item 
-        
+        parent
         
         
         ">
@@ -523,7 +523,7 @@
   
     
     <li data-nav-id="/python/webclient/" title="Webclient" class="dd-item 
-        
+        parent
         
         
         ">
@@ -547,7 +547,7 @@
  
   
     
-      <li data-nav-id="/python/webclient/requests/" title="Requests" class="dd-item ">
+      <li data-nav-id="/python/webclient/requests/" title="Requests" class="dd-item active">
         <a href="/python/webclient/requests/">
         Requests
         
@@ -598,41 +598,134 @@
         <div id="overlay"></div>
         <div class="padding highlightable">
               
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'></a> > <a href='/python/'>Pythons</a> > <a href='/python/webclient/'>Webclient</a> > Requests
+          
+         
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#requests">Requests</a>
+<ul>
+<li><a href="#memo">memo</a>
+<ul>
+<li><a href="#api-のレスポンスタイム計測">API のレスポンスタイム計測</a></li>
+<li><a href="#https-アクセス時の証明書の警告無視と-warning-抑制">HTTPS アクセス時の証明書の警告無視と、warning 抑制</a>
+<ul>
+<li><a href="#証明書の警告無視">証明書の警告無視</a></li>
+<li><a href="#warning-抑制">warning 抑制</a></li>
+</ul></li>
+<li><a href="#logger-設定">logger 設定</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
 
         
         <div id="body-inner">
           
+            <h1>Requests</h1>
+          
 
         
 
-<span id="sidebar-toggle-span">
-<a href="#" id="sidebar-toggle" data-sidebar-toggle=""><i class="fas fa-bars"></i> navigation</a>
-</span>
-
- 
 
 
-<h1 id="tech-memo">Tech Memo</h1>
 
-<table>
-    <tr>
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
+<h1 id="requests">Requests</h1>
+
+<h2 id="memo">memo</h2>
+
+<h3 id="api-のレスポンスタイム計測">API のレスポンスタイム計測</h3>
+
+<pre>
+response.elapsed.total_seconds()
+</pre>
+
+<p>参考: <a href="http://docs.python-requests.org/en/latest/api/?highlight=elapsed#requests.Response.elapsed">http://docs.python-requests.org/en/latest/api/?highlight=elapsed#requests.Response.elapsed</a></p>
+
+<h3 id="https-アクセス時の証明書の警告無視と-warning-抑制">HTTPS アクセス時の証明書の警告無視と、warning 抑制</h3>
+
+<h4 id="証明書の警告無視">証明書の警告無視</h4>
+
+<pre>
+requests.get(url, verify=False)
+</pre>
+
+<h4 id="warning-抑制">warning 抑制</h4>
+
+<p>警告無視すると、コンソールにログが出続ける。邪魔な場合には下記で消す。</p>
+
+<pre>
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+</pre>
+
+<p>参考: <a href="https://stackoverflow.com/questions/27981545/suppress-insecurerequestwarning-unverified-https-request-is-being-made-in-pytho">https://stackoverflow.com/questions/27981545/suppress-insecurerequestwarning-unverified-https-request-is-being-made-in-pytho</a></p>
+
+<h3 id="logger-設定">logger 設定</h3>
+
+<p>上記の InsecureReqjestWarning には聞かないようだが、ログレベルの変更方法は下記。</p>
+
+<pre>
+logging.getLogger("requests").setLevel(logging.WARNING)
+logging.getLogger('urllib3').setLevel(logging.WARNING)
+</pre>
+
+
+<footer class=" footline" >
 	
-  
+</footer>
+
+
         
         </div> 
         
@@ -943,6 +1036,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -958,6 +1052,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -970,6 +1065,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -996,6 +1092,8 @@
 
 	 
 	 
+		
+			<a class="nav nav-prev" href="/python/webclient/" title="Webclient"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/posts/" title="Posts" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>

@@ -40,6 +40,19 @@ https://github.com/kazuno47/src-hugo-blog/commit/fda39a9eb813f4d25036790ee8c0748
     </item>
     
     <item>
+      <title>Requests</title>
+      <link>http://hugo.kazunobu.info/python/webclient/requests/</link>
+      <pubDate>Wed, 19 Dec 2018 16:16:14 +0900</pubDate>
+      
+      <guid>http://hugo.kazunobu.info/python/webclient/requests/</guid>
+      <description> Requests memo API のレスポンスタイム計測  response.elapsed.total_seconds()  参考: http://docs.python-requests.org/en/latest/api/?highlight=elapsed#requests.Response.elapsed
+HTTPS アクセス時の証明書の警告無視と、warning 抑制 証明書の警告無視  requests.get(url, verify=False)  warning 抑制 警告無視すると、コンソールにログが出続ける。邪魔な場合には下記で消す。
+ import urllib3 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  参考: https://stackoverflow.com/questions/27981545/suppress-insecurerequestwarning-unverified-https-request-is-being-made-in-pytho
+logger 設定 上記の InsecureReqjestWarning には聞かないようだが、ログレベルの変更方法は下記。
+ logging.getLogger(&#34;requests&#34;).setLevel(logging.WARNING) logging.getLogger(&#39;urllib3&#39;).setLevel(logging.WARNING)  </description>
+    </item>
+    
+    <item>
       <title>Basic_mathematics</title>
       <link>http://hugo.kazunobu.info/ai/atmarkit/basic_mathematics/</link>
       <pubDate>Fri, 14 Dec 2018 10:59:42 +0900</pubDate>

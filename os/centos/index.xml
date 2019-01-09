@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CentOS on Kazunobu.info tech blog</title>
+    <link>http://hugo.kazunobu.info/os/centos/</link>
+    <description>Recent content in CentOS on Kazunobu.info tech blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Thu, 29 Nov 2018 15:30:10 +0900</lastBuildDate>
+    
+	<atom:link href="http://hugo.kazunobu.info/os/centos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>99.Trouble_shooting</title>
+      <link>http://hugo.kazunobu.info/os/centos/trouble_shooting/</link>
+      <pubDate>Fri, 14 Dec 2018 10:41:14 +0900</pubDate>
+      
+      <guid>http://hugo.kazunobu.info/os/centos/trouble_shooting/</guid>
+      <description>トラぶった時の対応メモ
+コネクションが日本語  コネクションを確認
+nmcli c s
+UUIDとデバイス名を確認する
+コネクションを削除
+nmcli c delete [UUID]
+コネクション作成
+nmcli c add type eth ifname [デバイス名] con-name [デバイス名]
+これでデバイス名と同じコネクションネームになる
+con-nameの次の[デバイス名]は任意の名前にしてもよい
+ 参考 https://qiita.com/masa-tu/items/ffb28a76ca0ebafa1a16
+不明な接続 &amp;lsquo;ensxx&amp;rsquo; です UUIDで指定するか、コネクションが日本語に記載のとおり、接続名をデバイス名と同じにしておけばいい。
+ nmcliのmanpageをみると、
+nmcliのmanpage による投稿:
+modify [&amp;ndash;temporary] [id | uuid | path] ID [+|-]setting.property value&amp;hellip;
+となっていて、デバイス名を指定できるとは書かれていません。
+ここで指定できるものというのはおそらく、
+コード:
+nmcli connection show
+で出力される「NAME（たぶんこれがid）」や「UUID」などが該当すると思われるのですが、ネット上の情報をみると、以前は「NAME」の情報にもデバイス名が表示されていたようです。
+ 参考 https://forums.ubuntulinux.jp/viewtopic.php?id=18652</description>
+    </item>
+    
+    <item>
+      <title>02.Install</title>
+      <link>http://hugo.kazunobu.info/os/centos/install/</link>
+      <pubDate>Fri, 14 Dec 2018 10:22:46 +0900</pubDate>
+      
+      <guid>http://hugo.kazunobu.info/os/centos/install/</guid>
+      <description>CentOS7 の初期設定 RHEL が本番で使われることが多いので CentOS.
+しかし、IBMに買収されたため、他のディストリビューションを選択肢にいれるべきかも。
+ユーザアカウントをsudoに追加   visudo # ファイルの最終行に下記を追加 username ALL=(ALL) ALL  ネットワーク設定  # 下記がなぜかnoのため、yesに変える sudo vim /etc/sysconfig/network-scripts/ifcfg-ens32 ONBOOT=no → ONBOOT=yes  yum の proxy 設定   sudo yum vim /etc/yum.conf proxy={username}:{password}@{proxyhost}:{port}  epel-release repository　の追加 追加するくらいなら、最初から Fedora でいい気もする。
+  sudo yum install epel-release  xrdp のインストール  sudo yum install xrdp
+ xrdp の色数変更   sudo vim /etc/xrdp/xrdp.ini max_bpp=32 → max_bpp=24 # 接続時にWindows側のRDPの設定変更もいるかも # xrdp用にfirewallの穴あけ  firewall-cmd --permanent --zone=public --add-port=3389/tcp  firewall-cmd --reload  自動生成されるhomeフォルダを英語化する  LANG=C xdg-user-dirs-gtk-update  Google Chrome のインストール   sudo vim /etc/yum.</description>
+    </item>
+    
+    <item>
+      <title>01.ISOイメージ</title>
+      <link>http://hugo.kazunobu.info/os/centos/iso%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8/</link>
+      <pubDate>Thu, 29 Nov 2018 15:34:14 +0900</pubDate>
+      
+      <guid>http://hugo.kazunobu.info/os/centos/iso%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8/</guid>
+      <description>ISO イメージの種類   # image note   1 DVD ISO 標準パッケージ入りディスクイメージ。開発や自宅で使う場合などはこれかな。   2 Everything ISO 標準パッケージ以外に、追加でパッケージが入っているディスクイメージ。ローカルにリポジトリを立てる場合に使ったりするらしい。   3 Minimal ISO 必要最低限のパッケージだけが含まれているディスクイメージ。業務の本番環境ではこれに、構成管理ツールで追加設定するといいかも。   参考 https://www.centos.org/download/
+http://yuukiyg.hatenablog.jp/entry/2017/03/19/033948
+https://thinkit.co.jp/story/2014/11/21/5368</description>
+    </item>
+    
+  </channel>
+</rss>

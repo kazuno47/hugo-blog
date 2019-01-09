@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webclient on Kazunobu.info tech blog</title>
+    <link>http://hugo.kazunobu.info/python/webclient/</link>
+    <description>Recent content in Webclient on Kazunobu.info tech blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Wed, 09 Jan 2019 16:27:02 +0900</lastBuildDate>
+    
+	<atom:link href="http://hugo.kazunobu.info/python/webclient/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Requests</title>
+      <link>http://hugo.kazunobu.info/python/webclient/requests/</link>
+      <pubDate>Wed, 19 Dec 2018 16:16:14 +0900</pubDate>
+      
+      <guid>http://hugo.kazunobu.info/python/webclient/requests/</guid>
+      <description> Requests memo API のレスポンスタイム計測  response.elapsed.total_seconds()  参考: http://docs.python-requests.org/en/latest/api/?highlight=elapsed#requests.Response.elapsed
+HTTPS アクセス時の証明書の警告無視と、warning 抑制 証明書の警告無視  requests.get(url, verify=False)  warning 抑制 警告無視すると、コンソールにログが出続ける。邪魔な場合には下記で消す。
+ import urllib3 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)  参考: https://stackoverflow.com/questions/27981545/suppress-insecurerequestwarning-unverified-https-request-is-being-made-in-pytho
+logger 設定 上記の InsecureReqjestWarning には聞かないようだが、ログレベルの変更方法は下記。
+ logging.getLogger(&#34;requests&#34;).setLevel(logging.WARNING) logging.getLogger(&#39;urllib3&#39;).setLevel(logging.WARNING)  </description>
+    </item>
+    
+  </channel>
+</rss>
