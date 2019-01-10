@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Circleci :: Kazunobu.info tech blog</title>
+    <title>Execute_on_powershell :: Kazunobu.info tech blog</title>
 
     
     <link href="/css/nucleus.css?1547105085" rel="stylesheet">
@@ -32,7 +32,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/posts/circleci/">
+  <body class="" data-url="/python/execute_on_powershell/">
     <nav id="sidebar" class="">
 
 
@@ -72,7 +72,7 @@
   
     
     <li data-nav-id="/python/" title="Pythons" class="dd-item 
-        
+        parent
         
         
         ">
@@ -98,7 +98,7 @@
  
   
     
-      <li data-nav-id="/python/execute_on_powershell/" title="Execute_on_powershell" class="dd-item ">
+      <li data-nav-id="/python/execute_on_powershell/" title="Execute_on_powershell" class="dd-item active">
         <a href="/python/execute_on_powershell/">
         Execute_on_powershell
         
@@ -178,7 +178,7 @@
   
     
     <li data-nav-id="/posts/" title="Posts" class="dd-item 
-        parent
+        
         
         
         ">
@@ -221,7 +221,7 @@
  
   
     
-      <li data-nav-id="/posts/circleci/" title="Circleci" class="dd-item active">
+      <li data-nav-id="/posts/circleci/" title="Circleci" class="dd-item ">
         <a href="/posts/circleci/">
         Circleci
         
@@ -644,7 +644,7 @@
             
           
           
-            <a href='/'></a> > <a href='/posts/'>Posts</a> > Circleci
+            <a href='/'></a> > <a href='/python/'>Pythons</a> > Execute_on_powershell
           
          
           
@@ -669,13 +669,21 @@
         
         <div id="body-inner">
           
-            <h1>Circleci</h1>
+            <h1>Execute_on_powershell</h1>
           
 
         
 
 
-<p>this is test page for circle ci is moved !!</p>
+<p>Windows10環境で、自作の Python tool フォルダにパスを通して Powershell（Terminal）から実行しようとすると、期待した通りに実行できない。一瞬、ウィンドウが立ち上がっているようで、別プロセスとして実行されているようだ。</p>
+
+<p>今回のツールは結果を標準出力に出力するようにしているため、これでは使えない。リダイレクトしてもカラファイルが出来るだけだった。</p>
+
+<p>解決策としては、別プロセスで立ち上がるスクリプトの拡張子、今回であれば Python なので「.py」を、環境変数「PATHEXT」に追加すればいい。PATHEXT は、標準でシステム環境変数に定義されているが、システム環境変数は極力いじりたくないので、ユーザー環境変数に新たに PATHEXT を作り、値に「.PY」を加えた。うまく動いているようだ。</p>
+
+<p>※ 大文字で登録したのは、既存の登録が大文字だったので合わせてだけ。小文字で設定しても動くようだ。</p>
+
+<p>参考：<a href="http://itasuke.hatenablog.com/entry/2017/11/27/145839">http://itasuke.hatenablog.com/entry/2017/11/27/145839</a></p>
 
 
 <footer class=" footline" >
@@ -714,8 +722,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -732,6 +738,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -739,6 +746,44 @@
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -772,33 +817,10 @@
             
         
                     
-            
-        
-                    
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -815,26 +837,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1071,10 +1073,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/posts/20190107/" title="CircleCI &#43; Hugo のブログでエラーになった"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/python/" title="Pythons"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/posts/my-second-post/" title="My Second Post" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/python/webclient/" title="Webclient" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
