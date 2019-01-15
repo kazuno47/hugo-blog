@@ -6,10 +6,23 @@
     <description>Recent content on Kazunobu.info tech blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 10 Jan 2019 16:11:38 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jan 2019 11:19:35 +0900</lastBuildDate>
     
 	<atom:link href="http://hugo.kazunobu.info/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Post_java8</title>
+      <link>http://hugo.kazunobu.info/java/post_java8/</link>
+      <pubDate>Tue, 15 Jan 2019 11:19:35 +0900</pubDate>
+      
+      <guid>http://hugo.kazunobu.info/java/post_java8/</guid>
+      <description>詳細は未調査だが、備忘録としてサイトリンクと注意点。
+ファイル操作  java.io パッケージのクラス (Java I/O) よりも java.nio.file パッケージのクラス (NIO2) を優先的に使用する。
+ 日時操作  Date and Time API を使う。 Date クラスや Calendar クラス、SimpleDateFormat クラスなどの旧クラス群は特別な理由がない限り使用しない。
+ レビューなどで出てきた場合に注意する。
+参考：https://qiita.com/ptiringo/items/71c2792e7c553399c2e2</description>
+    </item>
     
     <item>
       <title>Execute_on_powershell</title>

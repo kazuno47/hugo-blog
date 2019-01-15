@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>99.Trouble_shooting :: Kazunobu.info tech blog</title>
+    <title>Post_java8 :: Kazunobu.info tech blog</title>
 
     
     <link href="/css/nucleus.css?1547523693" rel="stylesheet">
@@ -32,7 +32,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/os/centos/trouble_shooting/">
+  <body class="" data-url="/java/post_java8/">
     <nav id="sidebar" class="">
 
 
@@ -72,7 +72,7 @@
   
     
     <li data-nav-id="/java/" title="Javas" class="dd-item 
-        
+        parent
         
         
         ">
@@ -96,7 +96,7 @@
  
   
     
-      <li data-nav-id="/java/post_java8/" title="Post_java8" class="dd-item ">
+      <li data-nav-id="/java/post_java8/" title="Post_java8" class="dd-item active">
         <a href="/java/post_java8/">
         Post_java8
         
@@ -475,7 +475,7 @@
   
     
     <li data-nav-id="/os/" title="OSs" class="dd-item 
-        parent
+        
         
         
         ">
@@ -555,7 +555,7 @@
   
     
     <li data-nav-id="/os/centos/" title="CentOS" class="dd-item 
-        parent
+        
         
         
         ">
@@ -579,7 +579,7 @@
  
   
     
-      <li data-nav-id="/os/centos/trouble_shooting/" title="99.Trouble_shooting" class="dd-item active">
+      <li data-nav-id="/os/centos/trouble_shooting/" title="99.Trouble_shooting" class="dd-item ">
         <a href="/os/centos/trouble_shooting/">
         99.Trouble_shooting
         
@@ -695,13 +695,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/'></a> > <a href='/os/'>OSs</a> > <a href='/os/centos/'>CentOS</a> > 99.Trouble_shooting
-          
-         
+            <a href='/'></a> > <a href='/java/'>Javas</a> > Post_java8
           
          
           
@@ -716,17 +710,8 @@
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li><a href="#コネクションが日本語">コネクションが日本語</a>
-<ul>
-<li><a href="#参考">参考</a></li>
-</ul></li>
-<li><a href="#不明な接続-ensxx-です">不明な接続 &lsquo;ensxx&rsquo; です</a>
-<ul>
-<li><a href="#参考-1">参考</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#ファイル操作">ファイル操作</a></li>
+<li><a href="#日時操作">日時操作</a></li>
 </ul>
 </nav>
     </div>
@@ -740,7 +725,7 @@
         
         <div id="body-inner">
           
-            <h1>99.Trouble_shooting</h1>
+            <h1>Post_java8</h1>
           
 
         
@@ -748,59 +733,24 @@
 
 
 
-<p>トラぶった時の対応メモ</p>
+<p>詳細は未調査だが、備忘録としてサイトリンクと注意点。</p>
 
-<h2 id="コネクションが日本語">コネクションが日本語</h2>
-
-<blockquote>
-<p>コネクションを確認</p>
-
-<p>nmcli c s</p>
-
-<p>UUIDとデバイス名を確認する</p>
-
-<p>コネクションを削除</p>
-
-<p>nmcli c delete [UUID]</p>
-
-<p>コネクション作成</p>
-
-<p>nmcli c add type eth ifname [デバイス名] con-name [デバイス名]</p>
-
-<p>これでデバイス名と同じコネクションネームになる</p>
-
-<p>con-nameの次の[デバイス名]は任意の名前にしてもよい</p>
-</blockquote>
-
-<h3 id="参考">参考</h3>
-
-<p><a href="https://qiita.com/masa-tu/items/ffb28a76ca0ebafa1a16">https://qiita.com/masa-tu/items/ffb28a76ca0ebafa1a16</a></p>
-
-<h2 id="不明な接続-ensxx-です">不明な接続 &lsquo;ensxx&rsquo; です</h2>
-
-<p>UUIDで指定するか、コネクションが日本語に記載のとおり、接続名をデバイス名と同じにしておけばいい。</p>
+<h1 id="ファイル操作">ファイル操作</h1>
 
 <blockquote>
-<p>nmcliのmanpageをみると、</p>
-
-<p>nmcliのmanpage による投稿:</p>
-
-<p>modify [&ndash;temporary] [id | uuid | path] ID [+|-]setting.property value&hellip;</p>
-
-<p>となっていて、デバイス名を指定できるとは書かれていません。</p>
-
-<p>ここで指定できるものというのはおそらく、</p>
-
-<p>コード:</p>
-
-<p>nmcli connection show</p>
-
-<p>で出力される「NAME（たぶんこれがid）」や「UUID」などが該当すると思われるのですが、ネット上の情報をみると、以前は「NAME」の情報にもデバイス名が表示されていたようです。</p>
+<p>java.io パッケージのクラス (Java I/O) よりも java.nio.file パッケージのクラス (NIO2) を優先的に使用する。</p>
 </blockquote>
 
-<h3 id="参考-1">参考</h3>
+<h1 id="日時操作">日時操作</h1>
 
-<p><a href="https://forums.ubuntulinux.jp/viewtopic.php?id=18652">https://forums.ubuntulinux.jp/viewtopic.php?id=18652</a></p>
+<blockquote>
+<p>Date and Time API を使う。
+Date クラスや Calendar クラス、SimpleDateFormat クラスなどの旧クラス群は特別な理由がない限り使用しない。</p>
+</blockquote>
+
+<p>レビューなどで出てきた場合に注意する。</p>
+
+<p>参考：<a href="https://qiita.com/ptiringo/items/71c2792e7c553399c2e2">https://qiita.com/ptiringo/items/71c2792e7c553399c2e2</a></p>
 
 
 <footer class=" footline" >
@@ -839,8 +789,188 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                         
                         
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -897,22 +1027,6 @@
                     
 
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
             
             
@@ -928,118 +1042,6 @@
                     
             
         
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -1094,32 +1096,10 @@
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1145,47 +1125,10 @@
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1229,10 +1172,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/os/centos/" title="CentOS"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/java/" title="Javas"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/os/centos/install/" title="02.Install" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/python/" title="Pythons" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
