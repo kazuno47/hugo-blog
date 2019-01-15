@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="/images/favicon.png" type="image/x-icon" />
-    <title>Devenvmemo :: Kazunobu.info tech blog</title>
+    <title>Sqlservers :: Kazunobu.info tech blog</title>
 
     
     <link href="/css/nucleus.css?1547541936" rel="stylesheet">
@@ -32,7 +32,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/os/windows10/devenvmemo/">
+  <body class="" data-url="/sqlserver/">
     <nav id="sidebar" class="">
 
 
@@ -72,8 +72,8 @@
   
     
     <li data-nav-id="/sqlserver/" title="Sqlservers" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/sqlserver/">
@@ -124,7 +124,7 @@
     
     <li data-nav-id="/java/" title="Javas" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/java/">
@@ -175,7 +175,7 @@
     
     <li data-nav-id="/python/" title="Pythons" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/python/">
@@ -281,7 +281,7 @@
     
     <li data-nav-id="/posts/" title="Posts" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/posts/">
@@ -389,7 +389,7 @@
     
     <li data-nav-id="/english/" title="Englishes" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/english/">
@@ -440,7 +440,7 @@
     
     <li data-nav-id="/ai/" title="AIs" class="dd-item 
         
-        
+        active
         
         ">
       <a href="/ai/">
@@ -526,8 +526,8 @@
   
     
     <li data-nav-id="/os/" title="OSs" class="dd-item 
-        parent
         
+        active
         
         ">
       <a href="/os/">
@@ -553,7 +553,7 @@
   
     
     <li data-nav-id="/os/windows10/" title="Windows10" class="dd-item 
-        parent
+        
         
         
         ">
@@ -577,7 +577,7 @@
  
   
     
-      <li data-nav-id="/os/windows10/devenvmemo/" title="Devenvmemo" class="dd-item active">
+      <li data-nav-id="/os/windows10/devenvmemo/" title="Devenvmemo" class="dd-item ">
         <a href="/os/windows10/devenvmemo/">
         Devenvmemo
         
@@ -742,19 +742,7 @@
             
           
           
-            
-            
-          
-          
-            
-            
-          
-          
-            <a href='/'></a> > <a href='/os/'>OSs</a> > <a href='/os/windows10/'>Windows10</a> > Devenvmemo
-          
-         
-          
-         
+            <a href='/'></a> > Sqlservers
           
          
           
@@ -765,18 +753,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li><a href="#windows10-setup-memo">Windows10 setup memo</a>
-<ul>
-<li><a href="#wifi接続">WiFi接続</a></li>
-<li><a href="#ドメイン参加">ドメイン参加</a></li>
-<li><a href="#windows-update">Windows Update</a></li>
-<li><a href="#ファンクションキー">ファンクションキー</a></li>
-<li><a href="#アプリケーションのインストール">アプリケーションのインストール</a></li>
-</ul></li>
-</ul>
-</nav>
+
     </div>
 </div>
 
@@ -788,7 +765,7 @@
         
         <div id="body-inner">
           
-            <h1>Devenvmemo</h1>
+            <h1>Sqlservers</h1>
           
 
         
@@ -796,73 +773,9 @@
 
 
 
-<h1 id="windows10-setup-memo">Windows10 setup memo</h1>
-
-<h2 id="wifi接続">WiFi接続</h2>
-
-<p>ネットワークの一覧に接続先が存在しない場合（SSIDが非表示の場合？）設定→ネットワークとインターネット→新しい接続またはネットワークのセットアップ</p>
-
-<h2 id="ドメイン参加">ドメイン参加</h2>
-
-<ol>
-<li>設定→アカウント→職場または学校にアクセスする</li>
-<li>＋接続ボタン</li>
-<li>ウィンドウ下部にある、ローカルActiveDirectoryうんぬんをクリック</li>
-<li>ドメイン名を設定</li>
-<li>ドメインアカウントで認証</li>
-</ol>
-
-<h2 id="windows-update">Windows Update</h2>
-
-<p>更新プログラムの確認を実施</p>
-
-<h2 id="ファンクションキー">ファンクションキー</h2>
-
-<p>HP ELITEBOOK は Shift + Fn で function key をロックできる。</p>
-
-<h2 id="アプリケーションのインストール">アプリケーションのインストール</h2>
-
-<ul>
-<li>yappa
-
-<ul>
-<li>スタートアップに登録する場合、ファイル名を指定して実行から「shell:startup」を実行すると、エクスプローラが開くので、そこにショートカットをコピペする。</li>
-</ul></li>
-<li>Chrome</li>
-<li>Office2016</li>
-<li>git
-
-<ul>
-<li>username, email, sslVerify, keygen あたり。別途、Gitの項目を書く。</li>
-</ul></li>
-<li>Visual Studio Code
-
-<ul>
-<li>C:\Users{username}\AppData\Roaming\Code\User\ で git-hub に上げている設定を持ってくる。</li>
-<li>plugin</li>
-<li>Git History</li>
-<li>GitLens</li>
-<li>Japanese Laguage Pack for VisualStudio Code</li>
-<li>Markdown PDF</li>
-<li>markdownlint</li>
-<li>PlantUML</li>
-<li>これも別途 VSCode の項目を書く</li>
-</ul></li>
-<li>JetBrains toolbox</li>
-<li>rlogin</li>
-<li>Hugo</li>
-<li>Microsoft To-Do
-
-<ul>
-<li>スタートアップに登録する場合、ファイル名を指定して実行から「shell:appsfolder」を実行すると、エクスプローラが開くので、そこにショートカットを作成し、yappa と同じくスタートアップフォルダに配置する。</li>
-</ul></li>
-</ul>
-
-
 <footer class=" footline" >
 	
 </footer>
-
 
         
         </div> 
@@ -895,8 +808,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -910,6 +821,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1190,7 +1104,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1206,7 +1119,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1219,7 +1131,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -1239,9 +1150,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1314,10 +1222,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/os/windows10/" title="Windows10"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/" title=""> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/os/centos/" title="CentOS" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/sqlserver/dblib-error-message-20009/" title="Dblib Error Message 20009" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1348,4 +1256,3 @@
 
   </body>
 </html>
-
